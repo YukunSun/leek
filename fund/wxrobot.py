@@ -5,6 +5,7 @@ import requests
 
 
 class MyTestCase(unittest.TestCase):
+    @unittest.skip
     def test_qywechat_robot(self):
         time = "2020-07-17"
         grade = "3"

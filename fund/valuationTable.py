@@ -27,7 +27,6 @@ class MyTestCase(unittest.TestCase):
             "Cookie": "device_id=web_BkXA7l8kv; xq_a_token=d21e060f554a2b9e4493942a772d0bba812ff3f3; Hm_lvt_b53ede02df3afea0608038748f4c9f36=1594389456; _ga=GA1.2.1870501156.1594389458; gr_user_id=cc96a589-5fb0-4551-8a36-62a1e964692c; _gid=GA1.2.1354781524.1595165797; gr_session_id_94b96c7a661bf17a=0acfc23d-0345-4f87-aa30-8dcf884cfc67; gr_session_id_94b96c7a661bf17a_0acfc23d-0345-4f87-aa30-8dcf884cfc67=true; channel=1500012085; timestamp=1595168654221; Hm_lpvt_b53ede02df3afea0608038748f4c9f36=1595168654"
         }
         result = requests.request('get', url, headers=header).json()
-        self.assertEqual(True, True)
         print(result)
         data = result['data']
         time = data['time']
