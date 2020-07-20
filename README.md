@@ -4,6 +4,4 @@
 
 数据来源：
 
-- [银行螺丝钉-指数估值表][]
-
-[]: https://danjuanapp.com/screw/valuation-table
+- [银行螺丝钉-指数估值表][https://danjuanapp.com/screw/valuation-table]
