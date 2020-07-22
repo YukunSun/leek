@@ -1,6 +1,5 @@
 import json
 import unittest
-
 import requests
 
 
@@ -35,8 +34,7 @@ class MyTestCase(unittest.TestCase):
         # 企业微信
         template_title = "基金估值 <font color=\"warning\">{}</font> **评级**:{}/3\n".format(time, grade)
         template_link = "[原文](https://danjuanapp.com/screw/valuation-table)"
-        # 企业微信
-        # todo 在这里填写 key
+        # todo 在这里填写企业微信 key
         robot_key = ""
         robot = "https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key={}".format(robot_key)
         robot_body = {
