@@ -34,8 +34,8 @@ class MyTestCase(unittest.TestCase):
         # 企业微信
         template_title = "基金估值 <font color=\"warning\">{}</font> **评级**:{}/3\n".format(time, grade)
         template_link = "[原文](https://danjuanapp.com/screw/valuation-table)"
-        # todo 在这里填写企业微信 key
-        robot_key = ""
+        # todo 在这里填写企业微信 key,可以考虑配置到 github 的secret 中
+        robot_key = "07200f88-b40f-4e2a-b678-8846528daef3"
         robot = "https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key={}".format(robot_key)
         robot_body = {
             "msgtype": "markdown",
