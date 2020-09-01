@@ -8,7 +8,16 @@
 
 ## Application
 
-- 基金估值表消息推送
+### 基金估值表消息推送
+
+数据来源：
+
+- [银行螺丝钉-指数估值表](https://danjuanapp.com/screw/valuation-table)
+
+### 今日可转债申购提醒
+
+数据来源：
+- [同花顺数据中心](http://data.10jqka.com.cn/ipo/bond/)
 
 ## Usage（以 fund 消息为例）
 
@@ -23,8 +32,7 @@
 ![fund2](./assets/fund2.jpg)
 
 
-## 指数基金估值表
+## 环境变量
 
-## 数据来源：
-
-- [银行螺丝钉-指数估值表](https://danjuanapp.com/screw/valuation-table)
+- BOT_KEY_QYWECHAT_FUND
+- BOT_KEY_QYWECHAT_BOND
