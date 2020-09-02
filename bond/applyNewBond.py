@@ -30,23 +30,29 @@ class ApplyNewBondTestCase(unittest.TestCase):
         bonds = result['list']
         template = ""
         today = datetime.date.today()
+        # today = datetime.date.fromisoformat('2020-08-20')
+        place = "\n"
         for item in bonds:
             sub_date = item['sub_date']
             if today > datetime.date.fromisoformat(sub_date):
                 break
             elif today == datetime.date.fromisoformat(sub_date):
-                bond_code = item['bond_code']
-                bond_name = item['bond_name']
                 price = item['price']
                 expire_date = item['expire_date']
-                template += "{}{} ￥{} 到期:{}\n".format(bond_code, bond_name, price, expire_date)
+                template += "<font color=\"info\">{}</font>".format(item['bond_code'] + item['bond_name']) + place + \
+                            "正股：" + item['code'] + item['name'] + place + \
+                            "转股价:￥" + price + place + \
+                            "计划发行量:(亿元)" + item['plan_total'] + place + \
+                            "实际发行量:(亿元)" + item['issue_total'] + place + \
+                            "每股获配额:" + item['quota'] + place + \
+                            "到期日:" + expire_date + place + place
         if template == '':
             print('no new bond can be apply today')
             return
         robot_key = os.getenv('BOT_KEY_QYWECHAT_BOND')
         robot = "https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key={}".format(robot_key)
 
-        template_title = "可转债申购 <font color=\"warning\">{}</font>\n".format(today)
+        template_title = "新债提醒 <font color=\"warning\">{}</font>\n".format(today)
         template_link = "\n[原文](http://data.10jqka.com.cn/ipo/bond/)"
         robot_body = {
             "msgtype": "markdown",
