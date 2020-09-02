@@ -7,9 +7,9 @@
          * [基金估值表消息推送](#基金估值表消息推送)
          * [今日可转债申购提醒](#今日可转债申购提醒)
       * [Usage（以 fund 消息为例）](#usage以-fund-消息为例)
-      * [环境变量](#环境变量)
+      * [Webhook 列表](#webhook-列表)
 
-<!-- Added by: sunyk, at: Wed Sep  2 09:06:02 CST 2020 -->
+<!-- Added by: sunyk, at: Thu Sep  3 07:52:37 CST 2020 -->
 
 <!--te-->
 
@@ -18,7 +18,7 @@
 ## Preparation
 
 - github 账号
-- 企业微信 bot(也可使用飞书等其他工具，只要具备 bot 功能即可)
+- 企业微信 bot 的 webhook 地址(也可使用飞书等其他工具，只要具备 webhook 地址即可)
 
 ## Application
 
@@ -37,7 +37,7 @@
 
 1. fork 代码到自己的仓库
 
-2. 注册企业微信，然后创建一个 bot,并将 bot 的 key 配置到 Github Secret 中,`Name=WEB_HOOK_FUND`.
+2. 注册企业微信，然后创建一个 bot,并将 bot 的 key 配置到 Github Secret 中,`Name=WEB_HOOK_FUND`（可参考“Webhook 列表”）.
 
 ![fund](./assets/fund1.jpg)
 
@@ -46,7 +46,8 @@
 ![fund2](./assets/fund2.jpg)
 
 
-## 环境变量
+## Webhook 列表
 
-- WEB_HOOK_BOND
-- WEB_HOOK_FUND
+
+- WEB_HOOK_BOND：债券相关的 webhook 地址
+- WEB_HOOK_FUND：基金相关的 webhook 地址
