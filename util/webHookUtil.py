@@ -9,13 +9,13 @@ import json
 import requests
 
 
-def notify_by_qywechat(webHook, body):
+def notify_by_qywechat(web_hook, body):
     robot_body = {
         "msgtype": "markdown",
         "markdown": {
             "content": body
         }
     }
-    robot_result = requests.post(webHook, data=json.dumps(robot_body),
+    robot_result = requests.post(web_hook, data=json.dumps(robot_body),
                                  headers={"Content-Type": "application/json"}).json()
     return robot_result

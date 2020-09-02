@@ -1,8 +1,9 @@
-import json
 import os
 import unittest
 
 import requests
+
+from util.webHookUtil import notify_by_qywechat
 
 
 class MyTestCase(unittest.TestCase):
@@ -13,6 +14,9 @@ class MyTestCase(unittest.TestCase):
     #     pass
 
     def test_valuation(self):
+        robot = os.getenv('WEB_HOOK_FUND')
+        if robot == '':
+            print("WEB_HOOK_FUND is empty")
         url = 'https://danjuanapp.com/djapi/fundx/activity/user/vip_valuation/show/detail?source=lsd'
         header = {
             "Connection": "keep-alive",
@@ -34,17 +38,8 @@ class MyTestCase(unittest.TestCase):
         valuations = data['valuations']
         template_title = "基金估值 <font color=\"warning\">{}</font> **评级**:{}(1星为泡沫阶段，5星为投资价值最高阶段)\n".format(time, grade)
         template_link = "[原文](https://danjuanapp.com/screw/valuation-table)"
-        # 企业微信的 bot key,配置在 github 的secret 中
-        robot_key = os.getenv('BOT_KEY_QYWECHAT_FUND')
-        robot = "https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key={}".format(robot_key)
-        robot_body = {
-            "msgtype": "markdown",
-            "markdown": {
-                "content": template_title + template_link
-            }
-        }
-        robot_result = requests.post(robot, data=json.dumps(robot_body),
-                                     headers={"Content-Type": "application/json"}).json()
+        body = template_title + template_link
+        robot_result = notify_by_qywechat(robot, body)
         self.assertEqual(robot_result['errcode'], 0)
 
 
