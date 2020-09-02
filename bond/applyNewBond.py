@@ -18,6 +18,9 @@ class ApplyNewBondTestCase(unittest.TestCase):
         可转债申购提醒
         :return:
         """
+        robot = os.getenv('WEB_HOOK_BOND')
+        if robot == '':
+            print("WEB_HOOK_BOND is empty")
         url = 'http://data.10jqka.com.cn/ipo/kzz/'
         header = {
             'Accept': 'application/json, text/javascript, */*; q=0.01',
@@ -50,8 +53,6 @@ class ApplyNewBondTestCase(unittest.TestCase):
         if template == '':
             print('no new bond can be apply today')
             return
-        robot_key = os.getenv('BOT_KEY_QYWECHAT_BOND')
-        robot = "https://qyapi.weixin.qq.com/cgi-bin/webhook/send?key={}".format(robot_key)
 
         template_title = "新债提醒 <font color=\"warning\">{}</font>\n".format(today)
         template_link = "\n[原文](http://data.10jqka.com.cn/ipo/bond/)"
