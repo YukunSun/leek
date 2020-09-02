@@ -1,10 +1,11 @@
 # -*- coding: utf-8 -*-
 import datetime
-import json
 import os
 import unittest
 
 import requests
+
+from util.webHookUtil import notify_by_qywechat
 
 """
 打新可转债
@@ -39,13 +40,13 @@ class ApplyNewBondTestCase(unittest.TestCase):
             elif today == datetime.date.fromisoformat(sub_date):
                 price = item['price']
                 expire_date = item['expire_date']
-                template += "<font color=\"info\">{}</font>".format(item['bond_code'] + item['bond_name']) + place + \
-                            "正股：" + item['code'] + item['name'] + place + \
-                            "转股价:￥" + price + place + \
-                            "计划发行量:(亿元)" + item['plan_total'] + place + \
-                            "实际发行量:(亿元)" + item['issue_total'] + place + \
-                            "每股获配额:" + item['quota'] + place + \
-                            "到期日:" + expire_date + place + place
+                template += item['bond_code'] + item['bond_name'] + place + \
+                            ">正股：" + item['code'] + item['name'] + place + \
+                            ">转股价:￥" + price + place + \
+                            ">计划发行量:(亿元)" + item['plan_total'] + place + \
+                            ">实际发行量:(亿元)" + item['issue_total'] + place + \
+                            ">每股获配额:" + item['quota'] + place + \
+                            ">到期日:" + expire_date + place + place
         if template == '':
             print('no new bond can be apply today')
             return
@@ -54,14 +55,8 @@ class ApplyNewBondTestCase(unittest.TestCase):
 
         template_title = "新债提醒 <font color=\"warning\">{}</font>\n".format(today)
         template_link = "\n[原文](http://data.10jqka.com.cn/ipo/bond/)"
-        robot_body = {
-            "msgtype": "markdown",
-            "markdown": {
-                "content": template_title + template + template_link
-            }
-        }
-        robot_result = requests.post(robot, data=json.dumps(robot_body),
-                                     headers={"Content-Type": "application/json"}).json()
+        body = template_title + template + template_link
+        robot_result = notify_by_qywechat(robot, body)
         self.assertEqual(robot_result['errcode'], 0)
         return
 
