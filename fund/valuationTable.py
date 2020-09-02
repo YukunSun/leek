@@ -15,8 +15,9 @@ class MyTestCase(unittest.TestCase):
 
     def test_valuation(self):
         robot = os.getenv('WEB_HOOK_FUND')
-        if robot == '':
+        if robot is None or robot == '':
             print("WEB_HOOK_FUND is empty")
+            return
         url = 'https://danjuanapp.com/djapi/fundx/activity/user/vip_valuation/show/detail?source=lsd'
         header = {
             "Connection": "keep-alive",

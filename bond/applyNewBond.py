@@ -19,8 +19,9 @@ class ApplyNewBondTestCase(unittest.TestCase):
         :return:
         """
         robot = os.getenv('WEB_HOOK_BOND')
-        if robot == '':
+        if robot is None or robot == '':
             print("WEB_HOOK_BOND is empty")
+            return
         url = 'http://data.10jqka.com.cn/ipo/kzz/'
         header = {
             'Accept': 'application/json, text/javascript, */*; q=0.01',

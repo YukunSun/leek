@@ -17,6 +17,7 @@
 
 ## Preparation
 
+- github 账号
 - 企业微信 bot(也可使用飞书等其他工具，只要具备 bot 功能即可)
 
 ## Application
