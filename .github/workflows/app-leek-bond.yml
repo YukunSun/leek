@@ -1,7 +1,7 @@
 # This workflow will install Python dependencies, run tests and lint with a single version of Python
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-python-with-github-actions
 
-name: Leek application-Fund
+name: Leek application-Bond
 
 on:
   push:
@@ -9,7 +9,7 @@ on:
   pull_request:
     branches: [ master ]
   schedule:
-    - cron: '0 15 * * 1-5'
+    - cron: '10 1 * * 1-5'
 
 jobs:
   build:
@@ -36,4 +36,4 @@ jobs:
       env:
         BOT_KEY_QYWECHAT_FUND: ${{ secrets.BOT_KEY_QYWECHAT_FUND }}
       run: |
-        python -m unittest fund.valuationTable
+        python -m unittest bond.applyNewBond
