@@ -34,6 +34,6 @@ jobs:
 #        flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Test with unittest
       env:
-        BOT_KEY_QYWECHAT_FUND: ${{ secrets.BOT_KEY_QYWECHAT_FUND }}
+        WEB_HOOK_FUND: ${{ secrets.WEB_HOOK_FUND }}
       run: |
         python -m unittest fund.valuationTable

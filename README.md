@@ -37,7 +37,7 @@
 
 1. fork 代码到自己的仓库
 
-2. 注册企业微信，然后创建一个 bot,并将 bot 的 key 配置到 Github Secret 中,`Name=BOT_KEY_QYWECHAT_FUND`.
+2. 注册企业微信，然后创建一个 bot,并将 bot 的 key 配置到 Github Secret 中,`Name=WEB_HOOK_FUND`.
 
 ![fund](./assets/fund1.jpg)
 
