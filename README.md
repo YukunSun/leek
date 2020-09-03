@@ -13,7 +13,11 @@
 
 # leek
 
-是一个基于 web hook 和 Github Actions 的自动推送项目
+leek 是一个基于 web hook 和 Github Actions 的自动推送提醒项目。
+
+- 目前仅收录金融类信息的推送功能，欢迎贡献代码
+
+优点：
 - 无需服务器
 - 开箱即用
 
@@ -52,6 +56,8 @@
 
 
 ## Webhook 列表
+
+如果只想由一个 web hook 接收消息，把所有的地址配置成一个相同的 web hook 即可
 
 - WEB_HOOK_BOND：债券相关的 webhook 地址
 - WEB_HOOK_FUND：基金相关的 webhook 地址
