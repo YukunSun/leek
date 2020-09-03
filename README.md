@@ -13,6 +13,10 @@
 
 # leek
 
+是一个基于 web hook 和 Github Actions 的自动推送项目
+- 无需服务器
+- 开箱即用
+
 ## Preparation
 
 - github 账号
@@ -38,6 +42,9 @@
 2. 注册企业微信，然后创建一个 bot,并将 bot 的 key 配置到 Github Secret 中,`Name=WEB_HOOK_FUND`（可参考“Webhook 列表”）.
 
 ![fund](./assets/fund1.jpg)
+
+注：配置完成以后的列表举例：
+![env](./assets/env1.png)
 
 3. 待 Github Actions 执行后可以在企业微信内收到提醒消息
 
