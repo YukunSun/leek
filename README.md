@@ -43,7 +43,7 @@ leek 是一个基于 web hook 和 Github Actions 的自动推送提醒项目。
 
 1. fork 代码到自己的仓库
 
-2. 注册企业微信，然后创建一个 bot,并将 bot 的 key 配置到 Github Secret 中,`Name=WEB_HOOK_FUND`（可参考“Webhook 列表”）.
+2. 注册企业微信，然后创建一个 bot,并将 bot 的 webhook 地址配置到 Github Secret 中,`Name=WEB_HOOK_FUND`（可参考“Webhook 列表”）.
 
 ![fund](./assets/fund1.jpg)
 
