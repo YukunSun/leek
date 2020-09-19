@@ -55,41 +55,12 @@ class ApplyNewBondTestCase(unittest.TestCase):
             print('no new bond can be apply today')
             return
 
-        template_title = "新债提醒 <font color=\"warning\">{}</font>\n".format(today)
+        template_title = "新债申购 <font color=\"warning\">{}</font>\n".format(today)
         template_link = "\n[原文](http://data.10jqka.com.cn/ipo/bond/)"
         body = template_title + template + template_link
         robot_result = notify_by_qywechat(robot, body)
         self.assertEqual(robot_result['errcode'], 0)
         return
-
-    # def test_apply_by_xueqiu_pingan(self):
-    #     """
-    #     todo 因技术局限性，暂时搁置
-    #     基于雪球 + 平安
-    #     :return:
-    #     """
-    #     # todo 0 read account from system config
-    #     accounts = os.getenv('PINGAN_ACCOUNT')
-    #     passwords = os.getenv('PINGAN_PASSWORD')
-    #     bot_key = os.getenv('BOT_KEY_QYWECHAT_BOND')
-    #
-    #     # todo 1 refresh token
-    #
-    #     # 2 list new bonds
-    #     header_list = {
-    #         'Cookie: xq_a_token=b05e638b6f7f071b48cef03b79d5c896b035c977;xq_id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJ1aWQiOjQ3MTg4MzQ5NjYsImlzcyI6InVjIiwiZXhwIjoxNTk4MjU0NDc1LCJjdG0iOjE1OTU2NjI0NzYxMzgsImNpZCI6Ikp0WGJhTW43ZVAifQ.NgldzGp9fthLnKbyz3AfMP1SZhVL_nn-du6JMKilrSW4ujR6zSEh3-X0_j6Pmi3MDvw3uvLZZkF-RsD4HXHAhCAY2w5WQuDZICqWPO-mT_cFvMNchS_9TJHooOSNGtptmV2ip6DW45V0MH74Y0Z_HVMqfMr__NTr-EBZmjEcNzowJa9jexjisr7U64QmZ3ywzy_NJjlwbED_I1lXq3y0uCe7Ph684PIhnFkPymFFTuWg1iqcrKIM4YX61kstkBBilQ6OWzsmkO2Y-8WcQj5CsRZit5yhyGWy2ShbcvxW6IGDy6JAKMoZDthPhC0UfQhwK1WjVy2MD8OmgZ0C2ivdBA;u=4718834966;session_id=bf5e7516d10d16e5c076ef3e910ea8d2052407a089f29c414fb23363c644b174;xid=100306103',
-    #         'User-Agent: Xueqiu Android 12.16',
-    #         'Accept-Language: en-US,en;q=0.8,zh-CN;q=0.6,zh;q=0.4',
-    #         'X-Device-Model-Name: HUAWEI_BKL-AL20',
-    #         'X-Device-OS: Android 10',
-    #         'Host: xueqiu.yun.pingan.com'
-    #     }
-    #     url_list = "https://xueqiu.yun.pingan.com/tc/snowx/PAMID/newshare/list.json?_t=1HUAWEIb05075c0f9e1d7f678f3b46c1792bbd8.4718834966.1596179225241.1596179244992&_s=a46a4d&read_access_token=-6816049545399589140&x=0.213&aid=PAMID.69ecdce146a75c4702d6a6bcb44546c8c60495a842c58dd8cc5406c09700503b&tid=PAMID"
-    #     result = requests.request('get', url_list, headers=header_list).json()
-    #
-    #     # 3 apply for the bond
-    #
-    #     # 4 notify
 
 
 if __name__ == '__main__':
